@@ -2,6 +2,7 @@ import {NgModule}      from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms'; // for ngModel directive
 import {AppComponent}  from './app.component';
+import {PairDetailComponent} from './pair-detail.component';
 import {HeroDetailComponent} from './hero-detail.component';
 import {BossDetailComponent} from './boss-detail.component';
 
@@ -12,6 +13,7 @@ import {BossDetailComponent} from './boss-detail.component';
     ],
     declarations: [
         AppComponent,
+        PairDetailComponent,
         HeroDetailComponent,
         BossDetailComponent
     ],

@@ -71,16 +71,28 @@ const PAIRS: Pair[] = [
                 (click)="onSelect(pair)"
             >
                 <span class="badge">{{pair.id}}.</span> {{pair.name}}
+                <ul>
+                    <li>This pair's hero : {{pair.hero.name}}</li>
+                    <li>This pair's boss : {{pair.boss.name}}</li>
+                </ul>
             </li>
         </ul>
+        <pair-detail
+            *ngIf="selectedPair"
+            [pair]="selectedPair"
+        ></pair-detail>
         <hero-detail
             *ngIf="selectedPair"
-            [hero]="selectedPair.hero"
-        ></hero-detail>
+            [(hero)]="selectedPair.hero"
+        >
+            <!--[pair]="selectedPair"-->
+        </hero-detail>
         <boss-detail
             *ngIf="selectedPair"
-            [boss]="selectedPair.boss"
-        ></boss-detail>
+            [pair]="selectedPair"
+        >
+            <!--[boss]="selectedPair.boss"-->
+        </boss-detail>
     `,
     styles: [`
         .selected {
