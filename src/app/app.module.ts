@@ -3,6 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms'; // for ngModel directive
 import {AppComponent}  from './app.component';
 import {HeroDetailComponent} from './hero-detail.component';
+import {BossDetailComponent} from './boss-detail.component';
 
 @NgModule({
     imports: [
@@ -11,7 +12,8 @@ import {HeroDetailComponent} from './hero-detail.component';
     ],
     declarations: [
         AppComponent,
-        HeroDetailComponent
+        HeroDetailComponent,
+        BossDetailComponent
     ],
     bootstrap: [AppComponent]
 })

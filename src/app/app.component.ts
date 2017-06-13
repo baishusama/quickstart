@@ -1,34 +1,86 @@
 import {Component} from '@angular/core';
 
-import {Hero} from './hero';
+import {Pair} from './pair';
 
-const HEROES: Hero[] = [
-    {id: 11, name: 'Mr. Nice'},
-    {id: 12, name: 'Narco'},
-    {id: 13, name: 'Bombasto'},
-    {id: 14, name: 'Celeritas'},
-    {id: 15, name: 'Magneta'},
-    {id: 16, name: 'RubberMan'},
-    {id: 17, name: 'Dynama'},
-    {id: 18, name: 'Dr IQ'},
-    {id: 19, name: 'Magma'},
-    {id: 20, name: 'Tornado'}
+// const HEROES: Hero[] = [
+//     {id: 11, name: 'Mr. Nice'},
+//     {id: 12, name: 'Narco'},
+//     {id: 13, name: 'Bombasto'},
+//     {id: 14, name: 'Celeritas'},
+//     {id: 15, name: 'Magneta'},
+//     {id: 16, name: 'RubberMan'},
+//     {id: 17, name: 'Dynama'},
+//     {id: 18, name: 'Dr IQ'},
+//     {id: 19, name: 'Magma'},
+//     {id: 20, name: 'Tornado'}
+// ];
+
+const PAIRS: Pair[] = [
+    {
+        id: 1,
+        name: 'Right/Bad',
+        hero: {
+            id: 1,
+            name: 'Mr. Right',
+            enemy: 'Mr. Bad'
+        },
+        boss: {
+            id: 1,
+            name: 'Mr. Bad',
+            enemy: 'Mr. Right'
+        }
+    },
+    {
+        id: 2,
+        name: 'Hello/Hi',
+        hero: {
+            id: 2,
+            name: 'Mr. Hello',
+            enemy: 'Mr. Hi'
+        },
+        boss: {
+            id: 2,
+            name: 'Mr. Hi',
+            enemy: 'Mr. Hello'
+        }
+    },
+    {
+        id: 3,
+        name: 'Sun/Moon',
+        hero: {
+            id: 3,
+            name: 'Mr. Sun',
+            enemy: 'Mr. Moon'
+        },
+        boss: {
+            id: 3,
+            name: 'Mr. Moon',
+            enemy: 'Mr. Sun'
+        }
+    }
 ];
 
 @Component({
     selector: 'my-app',
     template: `
         <h1>{{title}}</h1>
-        <h2>My Heroes List</h2>
-        <ul class="heroes">
-            <li *ngFor="let hero of heroes"
-                [class.selected]="hero === selectedHero"
-                (click)="onSelect(hero)"
+        <h2>My Pairs List</h2>
+        <ul class="pairs">
+            <li *ngFor="let pair of pairs"
+                [class.selected]="pair === selectedPair"
+                (click)="onSelect(pair)"
             >
-                <span class="badge">{{hero.id}}</span> {{hero.name}}
+                <span class="badge">{{pair.id}}.</span> {{pair.name}}
             </li>
         </ul>
-        <hero-detail [hero]="selectedHero"></hero-detail>
+        <hero-detail
+            *ngIf="selectedPair"
+            [hero]="selectedPair.hero"
+        ></hero-detail>
+        <boss-detail
+            *ngIf="selectedPair"
+            [boss]="selectedPair.boss"
+        ></boss-detail>
     `,
     styles: [`
         .selected {
@@ -87,15 +139,11 @@ const HEROES: Hero[] = [
     `]
 })
 export class AppComponent {
-    title = 'Tour of heroes';
-    // hero: Hero = {
-    //     id: 1,
-    //     name: 'Superman'
-    // };
-    heroes = HEROES;
-    selectedHero: Hero;
+    title = 'Tour of pairs';
+    pairs = PAIRS;
+    selectedPair: Pair;
 
-    onSelect(hero: Hero): void {
-        this.selectedHero = hero;
+    onSelect(pair: Pair): void {
+        this.selectedPair = pair;
     };
 }
