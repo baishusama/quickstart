@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
-import {Hero} from './hero';
+import {Hero} from '../lib/hero';
 
-import {HeroService} from './hero.service';
+import {HeroService} from '../lib/hero.service';
 
 @Component({
     selector: 'my-heroes',
@@ -12,7 +12,7 @@ import {HeroService} from './hero.service';
     providers: []
 })
 export class HeroesComponent implements OnInit {
-    // hero: Hero = {
+    // heroes: Hero = {
     //     id: 1,
     //     name: 'Superman'
     // };

@@ -4,8 +4,8 @@ import {Location} from '@angular/common';
 
 import 'rxjs/add/operator/switchMap';
 
-import {Hero} from './hero';
-import {HeroService} from './hero.service';
+import {Hero} from '../lib/hero';
+import {HeroService} from '../lib/hero.service';
 
 @Component({
     selector: 'hero-detail',
