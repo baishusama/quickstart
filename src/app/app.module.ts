@@ -13,6 +13,7 @@ import {AppComponent}  from './app.component';
 import {DashboardComponent} from './dashboard/dashoboard.component';
 import {HeroesComponent}  from './heroes/heroes.component';
 import {HeroDetailComponent} from './hero-detail/hero-detail.component';
+import {HeroSearchComponent} from './hero-search/hero-search.component';
 
 import {HeroService} from './lib/hero.service';
 
@@ -28,7 +29,8 @@ import {HeroService} from './lib/hero.service';
         AppComponent,
         DashboardComponent,
         HeroesComponent,
-        HeroDetailComponent
+        HeroDetailComponent,
+        HeroSearchComponent
     ],
     providers: [
         HeroService
